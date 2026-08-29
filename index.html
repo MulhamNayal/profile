@@ -1,650 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<style>
-.circular-image {
-  width: 80px; 
-  height: 80px; 
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 15px;
-}
-
-
-    .portfolio-card {
-        background-color: #fff;
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        transition: transform 0.3s ease-in-out;
-    }
-
-        .portfolio-card h4 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .portfolio-card p {
-            font-size: 1rem;
-            color: #666;
-            flex-grow: 1; /* Makes the paragraph take up remaining space */
-        }
-
-        .portfolio-card .details-link {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007bff;
-            text-decoration: none;
-            font-size: 1.2rem;
-        }
-
-            .portfolio-card .details-link:hover {
-                color: #0056b3;
-            }
-
-        .portfolio-card:hover {
-            transform: translateY(-5px);
-        }
-
-
-.service-item {
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center elements horizontally */
-  padding-top: 0;
-  margin-top: 0;
-  text-align: center; /* Center text content */
-}
-
-.circular-image {
-  border-radius: 50%;
-  width: 80px; /* Adjust the width as needed */
-  height: 80px; /* Adjust the height as needed */
-  margin-bottom: 10px; /* Add some space below the image */
-}
-
-h3 {
-  margin-top: 0;
-  padding-top: 0;
-}
-
-p {
-  margin-top: 5px; /* Slight space between title and paragraph */
-  padding-top: 0;
-}
-
-    #footer {
-        background-color: #1e1e1e; /* Change to your preferred background color */
-        padding: 20px 0;
-    }
-
-        #footer .social-links {
-            margin-bottom: 20px; /* Add some space below the social icons */
-        }
-
-            #footer .social-links a {
-                color: #ffffff; /* Make the icons more visible by changing their color to white */
-                font-size: 24px; /* Increase the size of the icons */
-                margin: 0 15px;
-                transition: color 0.3s;
-            }
-
-                #footer .social-links a:hover {
-                    color: #ffdd57; /* Change to your preferred hover color */
-                }
-
-        #footer .copyright p {
-            color: #bbbbbb; /* Change text color for better visibility */
-        }
-
-        #footer .credits {
-            margin-top: 20px; /* Add some space above the credits text */
-        }
-
-            #footer .credits a {
-                color: #bbbbbb; /* Change text color for better visibility */
-            }
-
-
-</style>
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - DevFolio Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mulham Alnayal — Senior Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1526; --ink-2:#0E1C31; --ink-3:#13253E;
+    --line:#22406A; --line-soft:#1A3255;
+    --text:#E7EEF7; --muted:#8FA6C4; --muted-2:#5E769A;
+    --amber:#E7A93F; --amber-dim:#B9842F; --cyan:#5EC8F2;
+    --grid-alpha:rgba(94,200,242,.045);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);color:var(--text);
+    font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+    background-image:linear-gradient(var(--grid-alpha) 1px,transparent 1px),linear-gradient(90deg,var(--grid-alpha) 1px,transparent 1px);
+    background-size:34px 34px;
+  }
+  ::selection{background:var(--amber);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+  .mono{font-family:"IBM Plex Mono",monospace}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:500}
+  .display{font-family:"Space Grotesk",sans-serif;line-height:1.05;letter-spacing:-.02em}
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);background:rgba(10,21,38,.82);border-bottom:1px solid var(--line-soft)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .brand{font-family:"IBM Plex Mono",monospace;font-size:.85rem;letter-spacing:.04em}
+  .brand b{color:var(--amber)}
+  .navlinks{display:flex;gap:26px}
+  .navlinks a{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--muted);transition:color .2s;position:relative;padding:4px 0}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--amber);transition:width .25s}
+  .navlinks a:hover{color:var(--text)}
+  .navlinks a.active{color:var(--amber)}
+  .navlinks a.active::after{width:100%}
+  @media(max-width:640px){.navlinks{display:none}}
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  /* HERO */
+  header{padding:82px 0 56px;position:relative}
+  header::before{content:"";position:absolute;top:40px;left:50%;transform:translateX(-50%);width:min(760px,80%);height:340px;background:radial-gradient(ellipse at center,rgba(231,169,63,.10),transparent 68%);pointer-events:none;filter:blur(8px)}
+  .coord{position:absolute;font-family:"IBM Plex Mono",monospace;font-size:.68rem;color:var(--muted-2);letter-spacing:.05em}
+  .status-pill{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cyan);border:1px solid #2a5a75;background:rgba(94,200,242,.07);padding:5px 12px;border-radius:20px;margin-bottom:22px}
+  .status-pill .live{width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 0 rgba(94,200,242,.6);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,200,242,.5)}70%{box-shadow:0 0 0 7px rgba(94,200,242,0)}100%{box-shadow:0 0 0 0 rgba(94,200,242,0)}}
+  .h-name{font-size:clamp(2.6rem,7vw,5.1rem);font-weight:600;margin:12px 0 6px;position:relative}
+  .h-role{font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:clamp(.85rem,2vw,1.05rem);letter-spacing:.03em}
+  .h-role b{color:var(--cyan);font-weight:500}
+  .h-blurb{max-width:620px;margin-top:22px;color:var(--muted);font-size:1.02rem}
+  .h-cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+  .btn{font-family:"IBM Plex Mono",monospace;font-size:.82rem;letter-spacing:.02em;padding:11px 20px;border:1px solid var(--line);border-radius:2px;display:inline-flex;align-items:center;gap:9px;transition:all .2s;color:var(--text)}
+  .btn:hover{border-color:var(--amber);color:var(--amber);transform:translateY(-1px)}
+  .btn.primary{background:var(--amber);border-color:var(--amber);color:var(--ink);font-weight:600}
+  .btn.primary:hover{background:transparent;color:var(--amber);transform:translateY(-1px)}
+  .btn svg{width:15px;height:15px}
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  /* METRICS */
+  .schematic{margin:52px 0 8px;border:1px solid var(--line);background:var(--ink-2);position:relative;border-radius:3px}
+  .schematic::before,.schematic::after{content:"";position:absolute;width:9px;height:9px;border:1px solid var(--amber)}
+  .schematic::before{top:-1px;left:-1px;border-right:0;border-bottom:0}
+  .schematic::after{bottom:-1px;right:-1px;border-left:0;border-top:0}
+  .sch-head{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid var(--line-soft);font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted-2);letter-spacing:.15em;text-transform:uppercase}
+  .sch-head .dot{width:7px;height:7px;border-radius:50%;background:var(--amber);display:inline-block;margin-right:8px;box-shadow:0 0 8px var(--amber)}
+  .metrics{display:grid;grid-template-columns:repeat(4,1fr)}
+  .metric{padding:26px 20px;border-right:1px solid var(--line-soft)}
+  .metric:last-child{border-right:0}
+  .metric .val{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:600;letter-spacing:-.02em;line-height:1}
+  .metric .val .u{color:var(--amber);font-size:.6em}
+  .metric .lbl{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted);margin-top:10px}
+  @media(max-width:720px){.metrics{grid-template-columns:repeat(2,1fr)}.metric:nth-child(2){border-right:0}.metric:nth-child(1),.metric:nth-child(2){border-bottom:1px solid var(--line-soft)}}
+  .latency{margin-top:16px;padding:16px 18px;border:1px dashed var(--line);border-radius:3px;background:var(--ink-2)}
+  .latency .lt-top{display:flex;justify-content:space-between;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted);margin-bottom:10px}
+  .latency .lt-top b{color:var(--amber)}
+  .bar-track{height:8px;background:var(--ink-3);border-radius:4px;overflow:hidden;position:relative}
+  .bar-before{position:absolute;inset:0;background:linear-gradient(90deg,#3a2a12,var(--amber-dim));opacity:.5}
+  .bar-after{position:absolute;left:0;top:0;height:100%;width:100%;background:var(--amber);box-shadow:0 0 10px var(--amber);transition:width 1.5s cubic-bezier(.2,.7,.2,1)}
+  .latency.in .bar-after{width:2.6%}
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  /* SECTION */
+  section{padding:64px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;border-bottom:1px solid var(--line-soft);padding-bottom:14px}
+  .sec-head h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.5rem,3vw,2rem);font-weight:600}
+  .sec-head .idx{font-family:"IBM Plex Mono",monospace;color:var(--amber);font-size:.8rem}
+  .sec-head .count{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted-2)}
 
-  <!-- =======================================================
-  * Template Name: DevFolio
-  * Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  /* FEATURED */
+  .featured{border:1px solid var(--line);background:linear-gradient(180deg,var(--ink-3),var(--ink-2));border-radius:4px;padding:30px;margin-bottom:26px;position:relative;overflow:hidden}
+  .featured::after{content:"";position:absolute;top:0;right:0;width:160px;height:160px;background:radial-gradient(circle at top right,rgba(231,169,63,.16),transparent 70%)}
+  .featured .flabel{position:absolute;top:22px;right:24px;display:flex;align-items:center;gap:8px}
+  .build-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(231,169,63,.6);animation:pulse-a 2.2s infinite}
+  @keyframes pulse-a{0%{box-shadow:0 0 0 0 rgba(231,169,63,.5)}70%{box-shadow:0 0 0 7px rgba(231,169,63,0)}100%{box-shadow:0 0 0 0 rgba(231,169,63,0)}}
+  .featured h3{font-family:"Space Grotesk",sans-serif;font-size:1.55rem;font-weight:600;margin-bottom:4px}
+  .featured .fmeta{font-family:"IBM Plex Mono",monospace;font-size:.75rem;color:var(--muted);margin-bottom:14px}
+  .featured p{color:var(--muted);max-width:640px;margin-bottom:18px}
+
+  /* FILTERS */
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .filters button{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.03em;color:var(--muted);background:transparent;border:1px solid var(--line-soft);padding:7px 15px;border-radius:20px;cursor:pointer;transition:all .2s}
+  .filters button:hover{color:var(--text);border-color:var(--line)}
+  .filters button.on{color:var(--ink);background:var(--amber);border-color:var(--amber);font-weight:600}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line-soft);background:var(--ink-2);border-radius:4px;padding:22px;transition:transform .25s,border-color .2s,opacity .3s;position:relative;display:flex;flex-direction:column;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;width:0;height:2px;background:var(--amber);transition:width .3s}
+  .card:hover{transform:translateY(-3px);border-color:var(--line)}
+  .card:hover::before{width:100%}
+  .card.hide{display:none}
+  .card .ctop{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+  .card h3{font-family:"Space Grotesk",sans-serif;font-size:1.12rem;font-weight:600;line-height:1.2}
+  .card .cmeta{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted-2);margin-bottom:12px}
+  .card p{color:var(--muted);font-size:.92rem;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+  .tags span{font-family:"IBM Plex Mono",monospace;font-size:.66rem;color:var(--muted);border:1px solid var(--line-soft);padding:3px 8px;border-radius:2px}
+  .tag{font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;padding:4px 9px;border-radius:2px;white-space:nowrap;flex-shrink:0}
+  .tag-open{background:rgba(231,169,63,.14);color:var(--amber);border:1px solid var(--amber-dim)}
+  .tag-prop{background:rgba(94,118,154,.12);color:var(--muted);border:1px solid var(--line-soft)}
+  .tag-client{background:rgba(94,200,242,.1);color:var(--cyan);border:1px solid #2a5a75}
+  .tag-vol{background:rgba(150,200,150,.1);color:#9fd0a0;border:1px solid #3f6a40}
+  .repo-link{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--amber);margin-top:14px;display:inline-flex;align-items:center;gap:7px;transition:gap .2s}
+  .repo-link:hover{gap:11px}
+
+  /* STACK */
+  .stack{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--line-soft);border-radius:4px;overflow:hidden}
+  @media(max-width:640px){.stack{grid-template-columns:1fr}}
+  .srow{padding:18px 22px;border-bottom:1px solid var(--line-soft);border-right:1px solid var(--line-soft)}
+  .stack .srow:nth-child(even){border-right:0}
+  .srow .sk{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:9px}
+  .srow .sv{font-size:.92rem;line-height:1.7}
+  .ai-banner{margin-top:16px;border:1px solid var(--amber-dim);background:linear-gradient(120deg,rgba(231,169,63,.08),rgba(231,169,63,.02));border-radius:4px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start}
+  .ai-banner .ai-ic{font-family:"IBM Plex Mono",monospace;color:var(--amber);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;padding-top:2px}
+  .ai-banner p{color:var(--muted);font-size:.92rem}
+  .ai-banner b{color:var(--text);font-weight:500}
+  @media(max-width:560px){.ai-banner{flex-direction:column;gap:8px}}
+
+  /* EXPERIENCE */
+  .exp{border-left:1px solid var(--line);margin-left:6px}
+  .job{position:relative;padding:0 0 30px 30px}
+  .job::before{content:"";position:absolute;left:-5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--ink);border:1px solid var(--amber)}
+  .job:last-child{padding-bottom:0}
+  .job .jt{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;font-weight:600}
+  .job .jc{color:var(--cyan);font-size:.95rem}
+  .job .jd{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--muted-2);margin:3px 0 8px}
+  .job p{color:var(--muted);font-size:.92rem;max-width:640px}
+
+  /* REVIEWS */
+  .reviews-grid{columns:2;column-gap:16px}
+  @media(max-width:720px){.reviews-grid{columns:1}}
+  .review{break-inside:avoid;margin:0 0 16px;border:1px solid var(--line-soft);background:var(--ink-2);border-radius:4px;padding:22px;transition:border-color .2s;position:relative}
+  .review:hover{border-color:var(--line)}
+  .review .qmark{font-family:"Space Grotesk",sans-serif;color:var(--amber);font-size:1.6rem;line-height:0;position:absolute;top:20px;left:20px;opacity:.5}
+  .review p{font-size:.92rem;padding-top:14px;margin-bottom:16px}
+  .review .who{font-family:"IBM Plex Mono",monospace;font-size:.76rem;color:var(--amber);font-weight:500}
+  .review .role{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted-2);margin-top:2px}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line-soft);padding:56px 0 44px;margin-top:20px}
+  .foot-grid{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+  .foot-cta h2{font-family:"Space Grotesk",sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:600;margin-bottom:8px}
+  .foot-cta p{color:var(--muted)}
+  .foot-links{display:flex;gap:12px;flex-wrap:wrap}
+  .fcopy{margin-top:40px;font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--muted-2);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.bar-after,.card{transition:none}.status-pill .live,.build-dot{animation:none}html{scroll-behavior:auto}}
+</style>
 </head>
-
-<body class="index-page">
-
-    <header id="header" class="header d-flex align-items-center sticky-top">
-        <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-
-            <a href="index.html" class="logo d-flex align-items-center">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">DevFolio</h1>
-            </a>
-
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active">Home<br></a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">LinkedIn's Reviews</a></li>
-                    <li><a href="#portfolio">My Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-            </nav>
-
-        </div>
-    </header>
-
-    <main class="main">
-
-        <!-- Hero Section -->
-        <section id="hero" class="hero section dark-background">
-
-            <img src="assets/img/hero-img.jpg" alt="" data-aos="fade-in">
-
-            <div class="container d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
-                <h2>I am Mulham Alnayal</h2>
-                <p><span class="typed" data-typed-items="Technical Team Lead,Senior Software Engineer, Solution Architecture"></span></p>
-            </div>
-
-        </section><!-- /Hero Section -->
-        <!-- About Section -->
-        <section id="about" class="about section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-                    <div class="col-md-6">
-
-                        <div class="row justify-content-between gy-4">
-                            <div class="col-lg-5">
-                                <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-7 about-info">
-                                <p><strong>Name: </strong> <span>Mulham Alnayal</span></p>
-                                <p><strong>Profile: </strong> <span>Technical Team Lead</span></p>
-                                <p><strong>Email: </strong> <span>mulhamalnayal@gmail.com</span></p>
-                                <!-- <p><strong>Phone: </strong> <span>(617) 557-0089</span></p> -->
-                            </div>
-                        </div>
-
-                        <div class="skills-content skills-animation">
-
-                            <h5>Skills</h5>
-
-                            <div class="progress">
-                                <span class="skill"><span>.Net Core</span> <i class="val">100%</i></span>
-                                <div class="progress-bar-wrap">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><!-- End Skills Item -->
-
-                            <div class="progress">
-                                <span class="skill"><span>SQL Server</span> <i class="val">90%</i></span>
-                                <div class="progress-bar-wrap">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><!-- End Skills Item -->
-
-                            <div class="progress">
-                                <span class="skill"><span>AWS</span> <i class="val">75%</i></span>
-                                <div class="progress-bar-wrap">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><!-- End Skills Item -->
-
-                            <div class="progress">
-                                <span class="skill"><span>Android Deveopment</span> <i class="val">55%</i></span>
-                                <div class="progress-bar-wrap">
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div><!-- End Skills Item -->
-
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="about-me">
-                            <h4>About me</h4>
-                            <p>
-                                I am a dedicated and innovative Senior Software Engineer with a focus on backend technologies and DevOps practices. Over the past decade, I have honed my skills in designing and implementing complex systems that meet the evolving needs of businesses. My experience spans multiple industries, including real estate, finance, and telecommunications, where I've led teams, architected scalable solutions, and continuously sought to advance my technical knowledge. I thrive in dynamic environments and am passionate about leveraging technology to solve real-world problems.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </section><!-- /About Section -->
-        <!-- Resume Section -->
-        <section id="resume" class="resume section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Resume</h2>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-                        <h3 class="resume-title">Sumary</h3>
-
-                        <div class="resume-item pb-0">
-                            <h4>Mulham Alnayal</h4>
-                            <p><em>Senior Software Engineer with over 10 years of experience specializing in backend development and DevOps. Known for my leadership, technical expertise, and commitment to continuous learning. I have a strong track record of delivering high-impact solutions across various industries, including real estate, telecommunications, and legal services. My skills in system architecture, software engineering, and cloud technologies have driven significant improvements in efficiency and performance for the organizations I've worked with.</em></p>
-                            <ul>
-                                <!-- <li>Portland par 127,Orlando, FL</li> -->
-                                <!-- <li>(123) 456-7891</li> -->
-                                <li>mulhamalnayal@gmail.com</li>
-                            </ul>
-                        </div><!-- Edn Resume Item -->
-
-                        <h3 class="resume-title">Education</h3>
-                        <div class="resume-item">
-                            <h4>Master of Web Science &amp; Web3</h4>
-                            <h5>2020 - Present</h5>
-                        </div><!-- Edn Resume Item -->
-
-                        <div class="resume-item">
-                            <h4>Bachelor of Computer Science</h4>
-                            <h5>2009 - 2014</h5>
-                        </div><!-- Edn Resume Item -->
-
-                        <div class="resume-item">
-                            <h4>Diploma in Computer Science</h4>
-                            <h5>2006 - 2009</h5>
-                        </div><!-- Edn Resume Item -->
-
-                    </div>
-
-                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="resume-title">Professional Experience</h3>
-                        <div class="resume-item">
-                            <h4>Technical Team Lead</h4>
-                            <h5>2020 - Present</h5>
-                            <p><em>IQI Global</em></p>
-                            <ul>
-                                <li>Leading a team of 15 professionals, providing technical guidance, conducting code reviews, and fostering knowledge sharing.</li>
-                                <li>Architected an ERP system from scratch for over 40,000 real estate agents and 300 users.</li>
-                                <li>Leading requirements analysis, translating complex business needs into actionable directives for the development team.</li>
-                                <li>Implemented a real-time error tracking service to reduce debugging time and enhancing overall development efficiency with over 95%.</li>
-                                <li>Contributed to recruitment and talent acquisition processes.</li>
-                                <li> Technologies: C#,SQL Server, .Net Core 8.0,EF Core,AWS , SpecFlow , PostgreSQL,Ubuntu, SignalR , Atlassian, New Relic, Copilot.</li>
-                            </ul>
-                        </div><!-- Edn Resume Item -->
-
-                        <div class="resume-item">
-                            <h4>Senior .NET Developer</h4>
-                            <h5>2018 - 2020</h5>
-                            <p><em>Forest Interactive</em></p>
-                            <ul>
-                                <li>Developed a real-time SMS platform serving banks for OTP Messages, capable of sending thousands of SMS daily through telos' gateways.</li>
-                                <li>Integrated billing system with Telco 3rd-party payment gateway.</li>
-                                <li>Decreased the load time of Rest APIs from 15 seconds to 20 ms in average.</li>
-                                <li>Implemented custom Html Razor function for language localization and built a dynamic user permissions middleware.</li>
-                                <li>Technologies: C# , .Net Core 3.0, Entity Framework Core, ASP.NET MVC,SQL Server , SignalR , Angular , TypeScript , jQuery , JavaScript, Jira</li>
-                            </ul>
-                        </div><!-- Edn Resume Item -->
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section><!-- /Resume Section -->
-        <!-- Services Section -->
-        <section id="services" class="services section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>LinkedIn's Reviews</h2>
-                <p></p>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-item position-relative text-center">
-                            <img src="assets/img/feedback/hainum.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <h3>Hainum Hameed, Product Development Manager</h3>
-                            <p>I have worked with Mulham on several projects closely as a front end developer consuming back end services written by him and his team. We had an excellent time working together and learning from each other. I would highly recommend Mulham for any project requiring developers of great skill and passion for their work</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-item position-relative text-center">
-                            <img src="assets/img/feedback/annisa.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <h3>Annisa , Marketing Manager</h3>
-                            <p>Mulham is a well-committed person to his role. I have acknowledged his efforts and initiatives he's had with projects. As a team player, he is also very patient in mentoring others and always ensures team members' understanding.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-item position-relative">
-                            <img src="assets/img/feedback/asif.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <a href="#" class="stretched-link">
-                                <h3>Asif Bhat, CEO & Founder</h3>
-                            </a>
-                            <p>Mulham is one of the best among all the people I have ever worked with. As I remember, Mulham was a very productive person, is hardworking, broad-minded and forward thinking individual. Intelligent, ambitious, energetic, and proactive perfectionist. The desire for proficiency and education makes Mulham is a valuable asset to the team.</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-item position-relative">
-                            <img src="assets/img/feedback/muni.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <a href="#" class="stretched-link">
-                                <h3>Muni Srivastava , Development Team Lead</h3>
-                            </a>
-                            <p>Mulham is a well connected professional that always takes the time to support anyone is his network. He has a very impressive background and profile and I recommend Mulham as a expert to connect with and consider for anything appropriate.</p>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-item position-relative">
-                            <img src="assets/img/feedback/youssef.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <a href="#" class="stretched-link">
-                                <h3>Youssef Labihi , Senior Mobile Software Engineer</h3>
-                            </a>
-                            <p>Mulham is a diligently and hard-working individual and does not shy away from challenging work. He's observant and communicative and it's been a pleasure working alongside him at Forest Interactive for the past one years. He would indeed be a great asset for whoever has the good fortune of working alongside him as he is not only focused on his own tasks but also is super happy to help out with anything you might be having trouble with whether it be as a simple sounding board for your problems or giving some specific technical advice.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                        <div class="service-item position-relative">
-                            <img src="assets/img/feedback/wasim.jpg" alt="Service Image" class="circular-image mx-auto">
-                            <a href="#" class="stretched-link">
-                                <h3>Wasim Latif, Senior UXer</h3>
-                            </a>
-                            <p>Mulham is a real pleasure to work with, and has outstanding experience in analysis, design, implementation and deployment of code. Proactive, dynamic and perfectly organized. Brilliant Software Engineer. I would recommend him with any project that requires the very best in Software Engineer execution. He is not only a reliable and forward thinking Senior Software Engineer but also an inspiring team player. Mulham will find a way to weather any storm with a smile. Certainly worth recommending.</p>
-                            <a href="#" class="stretched-link"></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-
-                </div>
-
-            </div>
-
-        </section><!-- /Services Section -->
-        <!-- Stats Section -->
-        <section id="stats" class="stats section accent-background">
-
-            <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
-
-            <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="0" class="purecounter">5</span>
-                            <p>Companies</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="0" class="purecounter">6</span>
-                            <p>Projects</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="0" class="purecounter">8</span>
-                            <p>Freelancing Projects</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="stats-item text-center w-100 h-100">
-                            <span data-purecounter-start="0" data-purecounter-end="8" data-purecounter-duration="0" class="purecounter">8</span>
-                            <p>Awards</p>
-                        </div>
-                    </div><!-- End Stats Item -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Stats Section -->
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="portfolio section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>My Projects</h2>
-            </div><!-- End Section Title -->
-
-            <div class="container">
-
-                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                        <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-app">App</li>
-                        <li data-filter=".filter-web">Web</li>
-                    </ul><!-- End Portfolio Filters -->
-
-                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>ERP System</h4>
-                                <p>Architected a comprehensive ERP system from scratch to manage over 40,000 real estate agents and 300 users, integrating it with accounting and finance systems to enhance operational efficiency.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-card">
-                                <h4>CashText</h4>
-                                <p>An app that allows users to earn per SMS. It turns unused SMS credits into rewards, providing a seamless way to start earning.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>GlobeBulk SMS</h4>
-                                <p>A real-time SMS platform built for banks to send OTP messages, capable of managing thousands of SMS daily with high reliability and speed.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-card">
-                                <h4>Van Sales Android App</h4>
-                                <p>A comprehensive sales app designed for sales vans, allowing efficient order management and real-time tracking, integrated with backend APIs for seamless operations.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>Restaurant POS</h4>
-                                <p>A robust point-of-sale system for restaurants, offering features like table management, order processing, and payment integration, tailored for a smooth dining experience.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-card">
-                                <h4>Lawyers App</h4>
-                                <p>An automation platform developed for legal operations, serving thousands of lawyers and clients, aimed at streamlining case management and legal documentation.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>SAMA Airways</h4>
-                                <p>A full-featured booking and management system for an airline company, facilitating the smooth operation of flight reservations, check-ins, and passenger management.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                            <div class="portfolio-card">
-                                <h4>Bayarin</h4>
-                                <p>An integrated payment solution app that allows users to manage and pay their bills directly from their mobile devices, supporting various payment gateways.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>Clinic Pulse</h4>
-                                <p>A clinic management system that offers comprehensive solutions for patient management, appointment scheduling, and electronic medical records.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>Job Apply Portal</h4>
-                                <p>An online job application portal developed for an NGO, facilitating the efficient management of job applications and candidate processing.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                        <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
-                            <div class="portfolio-card">
-                                <h4>Altaalouf NGO Website</h4>
-                                <p>The official website for Altaalouf NGO, providing comprehensive information about the organization, its mission, and its activities, with features for donation management and volunteer registration.</p>
-                            </div>
-                        </div><!-- End Portfolio Item -->
-
-                    </div><!-- End Portfolio Container -->
-
-                </div>
-
-            </div>
-
-        </section><!-- /Portfolio Section -->
-
-
-        <section id="contact" class="contact section">
-
-            <!-- Section Title -->
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Contact</h2>
-
-            </div><!-- End Section Title -->
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-
-
-                <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-                    <div class="row gy-4">
-
-                        <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                        </div>
-
-                        <div class="col-md-6 ">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                        </div>
-
-                        <div class="col-md-12">
-                            <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                        </div>
-
-                        <div class="col-md-12 text-center">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                            <button type="submit">Send Message</button>
-                        </div>
-
-                    </div>
-                </form><!-- End Contact Form -->
-
-            </div>
-
-        </section><!-- /Contact Section -->
-
-    </main>
-
-    <footer id="footer" class="footer accent-background">
-        <div class="container">
-            <div class="copyright text-center">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">DevFolio</strong> <span>All Rights Reserved</span></p>
-            </div>
-            <div class="social-links d-flex justify-content-center">
-                <a href="https://github.com/MulhamNayal"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/mulham-alnayal/"><i class="bi bi-linkedin"></i></a>
-            </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-    </footer>
-
-
-    <!-- Scroll Top -->
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
-
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">mulham<b>.</b>alnayal</div>
+    <div class="navlinks">
+      <a href="#projects">projects</a>
+      <a href="#stack">stack</a>
+      <a href="#experience">experience</a>
+      <a href="#reviews">reviews</a>
+      <a href="#contact">contact</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap" style="position:relative">
+    <span class="coord" style="top:-38px;right:28px">01°N 101°E — Kuala Lumpur</span>
+    <div class="status-pill reveal"><span class="live"></span>Open to opportunities</div>
+    <div class="eyebrow reveal">Senior Software Engineer · Backend &amp; DevOps</div>
+    <h1 class="h-name display reveal">Mulham Alnayal</h1>
+    <div class="h-role reveal">Technical Team Lead · <b>11+ years</b> building business-critical systems</div>
+    <p class="h-blurb reveal">I architect backend systems that carry real load — ERP platforms, payment and messaging infrastructure, and finance workflows — from the database schema up. Lately I build with AI-assisted engineering workflows (Claude Code, agentic patterns) layered on that foundation.</p>
+    <div class="h-cta reveal">
+      <a class="btn primary" href="https://github.com/MulhamNayal" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 4.4 2.9 8.2 6.8 9.5.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 .8-.2 1.6-.3 2.5-.3s1.7.1 2.5.3c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.3 4.6-4.6 4.9.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5C19.1 20.2 22 16.4 22 12c0-5.5-4.5-10-10-10z"/></svg>
+        github.com/MulhamNayal
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/mulham-alnayal-613306b2/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn" href="mailto:mulhamalnayal@outlook.com">Email ↗</a>
+    </div>
+
+    <div class="schematic reveal">
+      <div class="sch-head"><span><span class="dot"></span>SYSTEM READOUT</span><span>scale · impact</span></div>
+      <div class="metrics">
+        <div class="metric"><div class="val"><span class="num" data-to="40" data-suffix="K+">0</span></div><div class="lbl">agents on ERP<br>I architected</div></div>
+        <div class="metric"><div class="val"><span class="num" data-to="750" data-suffix="×">0</span></div><div class="lbl">API latency<br>improvement</div></div>
+        <div class="metric"><div class="val"><span class="num" data-to="57" data-suffix="K">0</span></div><div class="lbl">lawyers on legal<br>ops platform</div></div>
+        <div class="metric"><div class="val"><span class="num" data-to="11" data-suffix="+">0</span></div><div class="lbl">years shipping<br>production systems</div></div>
+      </div>
+    </div>
+
+    <div class="latency reveal" id="lat">
+      <div class="lt-top"><span>REST API RESPONSE — Forest Interactive</span><span><b>15s → 20ms</b></span></div>
+      <div class="bar-track"><div class="bar-before"></div><div class="bar-after"></div></div>
+    </div>
+  </div>
+</header>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx">01</span><h2>Projects</h2><span class="count" id="pcount">13 systems shipped</span></div>
+
+    <div class="featured reveal">
+      <div class="flabel"><span class="build-dot"></span><span class="tag tag-open">Open source</span></div>
+      <h3>Accounting</h3>
+      <div class="fmeta">Open accounting, inventory &amp; compliance platform for SMEs — pre-alpha, active development</div>
+      <p>A web-first platform giving small businesses accounting, inventory, and compliance in one place. Built with an AI-assisted engineering workflow end to end — requirements decomposed, tests generated and reviewed, and architecture documented with Claude Code under repository-specific guardrails.</p>
+      <div class="tags"><span>.NET 8</span><span>Clean Architecture</span><span>DDD</span><span>PostgreSQL</span><span>Angular</span><span>AI-assisted</span></div>
+      <!-- Replace the href below with the real Accounting repo URL once it's public -->
+      <a class="repo-link" href="https://github.com/MulhamNayal" target="_blank" rel="noopener">View repository →</a>
+    </div>
+
+    <div class="filters reveal">
+      <button class="on" data-f="all">All</button>
+      <button data-f="backend">Backend</button>
+      <button data-f="web">Web</button>
+      <button data-f="mobile">Mobile</button>
+    </div>
+
+    <div class="grid" id="grid">
+      <div class="card reveal" data-cat="backend web">
+        <div class="ctop"><h3>ERP System</h3><span class="tag tag-prop">Proprietary</span></div>
+        <div class="cmeta">IQI Global · 2023–Present</div>
+        <p>ERP platform architected from the ground up for 40,000+ real-estate agents and 300 internal users, integrated with accounting and finance to speed payment and operational workflows.</p>
+        <div class="tags"><span>.NET 8</span><span>EF Core</span><span>SQL Server</span><span>AWS</span><span>SignalR</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="backend">
+        <div class="ctop"><h3>GlobeBulk SMS</h3><span class="tag tag-prop">Proprietary</span></div>
+        <div class="cmeta">Forest Interactive · 2018–2019</div>
+        <p>Real-time SMS platform for banking OTP messaging, sending thousands of messages daily through telecom gateways. Home of the 15s→20ms API optimization.</p>
+        <div class="tags"><span>.NET Core</span><span>ASP.NET MVC</span><span>SignalR</span><span>Angular</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="backend web">
+        <div class="ctop"><h3>Lawyers App</h3><span class="tag tag-prop">Proprietary</span></div>
+        <div class="cmeta">Bar Association · 2015–2016</div>
+        <p>Automation platform for legal operations serving 57,000+ lawyers and 100,000 clients. Designed the ERD, UML models, and database from scratch; migrated legacy data from MS Access to SQL Server.</p>
+        <div class="tags"><span>.NET 4.8</span><span>WPF</span><span>Windows Forms</span><span>SQL Server</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="mobile">
+        <div class="ctop"><h3>CashText</h3><span class="tag tag-prop">Proprietary</span></div>
+        <div class="cmeta">Forest Interactive · 2020</div>
+        <p>Mobile app that turned users' unused SMS credits into redeemable rewards — a seamless way to start earning per message.</p>
+        <div class="tags"><span>.NET Core</span><span>Mobile API</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="mobile">
+        <div class="ctop"><h3>Bayarin</h3><span class="tag tag-prop">Proprietary</span></div>
+        <div class="cmeta">Forest Interactive · 2019</div>
+        <p>Integrated mobile payment solution letting users manage and pay bills directly from their phones across multiple payment gateways.</p>
+        <div class="tags"><span>.NET Core</span><span>REST</span><span>Payments</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="mobile">
+        <div class="ctop"><h3>Van Sales Android App</h3><span class="tag tag-client">Client work</span></div>
+        <div class="cmeta">Almohtaseb · 2015</div>
+        <p>Field-sales app for delivery vans with order management and real-time tracking, integrated with backend APIs for seamless operations.</p>
+        <div class="tags"><span>Android</span><span>Java</span><span>REST</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="ctop"><h3>Restaurant POS</h3><span class="tag tag-client">Client work</span></div>
+        <div class="cmeta">Almohtaseb · 2015</div>
+        <p>Point-of-sale system for restaurants with table management, order processing, and payment integration (PayPal, Mastercard, Visa).</p>
+        <div class="tags"><span>.NET</span><span>Socket.IO</span><span>SQL Server</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="ctop"><h3>SAMA Airways</h3><span class="tag tag-client">Client work</span></div>
+        <div class="cmeta">SAMA · UAE · 2016</div>
+        <p>Full-featured booking and management system for an airline — reservations, check-in, and passenger-management workflows.</p>
+        <div class="tags"><span>.NET</span><span>SQL Server</span><span>WCF</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="ctop"><h3>Clinic Pulse</h3><span class="tag tag-client">Client work</span></div>
+        <div class="cmeta">Syria · 2017</div>
+        <p>Clinic-management system covering patient management, appointment scheduling, and electronic medical records.</p>
+        <div class="tags"><span>.NET</span><span>SQL Server</span><span>EMR</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="ctop"><h3>Job Apply Portal</h3><span class="tag tag-vol">Volunteer</span></div>
+        <div class="cmeta">Altaalouf NGO · 2016–2017</div>
+        <p>Online job-application portal for an NGO, streamlining application management and candidate processing.</p>
+        <div class="tags"><span>ASP.NET</span><span>SQL Server</span></div>
+      </div>
+
+      <div class="card reveal" data-cat="web">
+        <div class="ctop"><h3>Altaalouf NGO Website</h3><span class="tag tag-vol">Volunteer</span></div>
+        <div class="cmeta">Altaalouf NGO · 2016–2017</div>
+        <p>Official website for the organization with information on its mission and activities, plus donation management and volunteer registration.</p>
+        <div class="tags"><span>Web</span><span>ASP.NET</span></div>
+      </div>
+    </div>
+    <p class="mono reveal" style="margin-top:22px;font-size:.75rem;color:var(--muted-2)">Most systems above were built for employers and clients and are not public. Open-source work lives on <a href="https://github.com/MulhamNayal" style="color:var(--amber)" target="_blank" rel="noopener">github.com/MulhamNayal</a>.</p>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx">02</span><h2>Stack</h2><span class="count">backend-weighted</span></div>
+    <div class="stack reveal">
+      <div class="srow"><div class="sk">Languages</div><div class="sv">C# · .NET · Java · Python · TypeScript · JavaScript · SQL / T-SQL / PL-SQL</div></div>
+      <div class="srow"><div class="sk">Backend</div><div class="sv">.NET 8 · ASP.NET Core · EF Core · WCF · SignalR · REST · SOAP</div></div>
+      <div class="srow"><div class="sk">Architecture</div><div class="sv">DDD · Event-Driven · Clean Architecture · CQRS · Microservices · Event Storming</div></div>
+      <div class="srow"><div class="sk">Data</div><div class="sv">SQL Server · PostgreSQL · Oracle · MySQL · MongoDB · Elasticsearch · Redis</div></div>
+      <div class="srow"><div class="sk">Cloud &amp; DevOps</div><div class="sv">AWS (EC2/S3/RDS/Lambda/SQS/…) · GCP · Docker · Azure DevOps · GitLab CI · Jenkins</div></div>
+      <div class="srow"><div class="sk">AI Engineering</div><div class="sv">Claude Code · agentic workflows · prompt &amp; context engineering · AI-assisted testing &amp; review</div></div>
+    </div>
+    <div class="ai-banner reveal">
+      <div class="ai-ic">// AI-native</div>
+      <p><b>I build with AI in the loop, not around it.</b> Requirements decomposition, layered repository guidance, test and documentation generation, and agent-assisted review — with human validation gates before anything ships.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx">03</span><h2>Experience</h2></div>
+    <div class="exp">
+      <div class="job reveal"><div class="jt">Technical Team Lead</div><div class="jc">IQI Global — Kuala Lumpur</div><div class="jd">Sep 2020 — Present</div><p>Lead a software engineering team on business-critical platforms. Architected the ERP from scratch, added real-time error tracking that cut debugging time by 95%+, and drive requirements analysis, code review, and hiring.</p></div>
+      <div class="job reveal"><div class="jt">Senior .NET Developer</div><div class="jc">Forest Interactive — Kuala Lumpur</div><div class="jd">Feb 2018 — Aug 2020</div><p>Built a real-time banking-OTP SMS platform and cut REST API response time from ~15s to 20ms through backend optimization. Integrated third-party payment gateways and shipped e-commerce and utility APIs.</p></div>
+      <div class="job reveal"><div class="jt">Software Engineer</div><div class="jc">Bar Association — Aleppo · Almohtaseb</div><div class="jd">2014 — 2016</div><p>Delivered a legal-operations platform for 57,000+ lawyers, and built Android + backend systems for field sales, restaurants, and payments across a distributed regional team.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="idx">04</span><h2>LinkedIn Reviews</h2><span class="count">from people I've worked with</span></div>
+    <div class="reviews-grid">
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>I have worked with Mulham on several projects closely as a front end developer consuming back end services written by him and his team. We had an excellent time working together and learning from each other. I would highly recommend Mulham for any project requiring developers of great skill and passion for their work.</p><div class="who">Hainum Hameed</div><div class="role">Product Development Manager</div></div>
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>Mulham is one of the best among all the people I have ever worked with. As I remember, Mulham was a very productive person, is hardworking, broad-minded and forward thinking individual. Intelligent, ambitious, energetic, and proactive perfectionist. The desire for proficiency and education makes Mulham a valuable asset to the team.</p><div class="who">Asif Bhat</div><div class="role">CEO &amp; Founder</div></div>
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>Mulham is a well-committed person to his role. I have acknowledged his efforts and initiatives he's had with projects. As a team player, he is also very patient in mentoring others and always ensures team members' understanding.</p><div class="who">Annisa</div><div class="role">Marketing Manager</div></div>
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>Mulham is a diligent and hard-working individual and does not shy away from challenging work. He's observant and communicative and it's been a pleasure working alongside him at Forest Interactive. He would indeed be a great asset for whoever has the good fortune of working alongside him — not only focused on his own tasks but also super happy to help out with anything you might be having trouble with, whether as a sounding board or giving specific technical advice.</p><div class="who">Youssef Labihi</div><div class="role">Senior Mobile Software Engineer</div></div>
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>Mulham is a well connected professional that always takes the time to support anyone in his network. He has a very impressive background and profile and I recommend Mulham as an expert to connect with and consider for anything appropriate.</p><div class="who">Muni Srivastava</div><div class="role">Development Team Lead</div></div>
+      <div class="review reveal"><span class="qmark">&ldquo;</span><p>Mulham is a real pleasure to work with, and has outstanding experience in analysis, design, implementation and deployment of code. Proactive, dynamic and perfectly organized. Brilliant Software Engineer. I would recommend him for any project that requires the very best in Software Engineer execution. He is not only a reliable and forward-thinking Senior Software Engineer but also an inspiring team player. Certainly worth recommending.</p><div class="who">Wasim Latif</div><div class="role">Senior UXer</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot-grid reveal">
+      <div class="foot-cta">
+        <h2>Let's build something reliable.</h2>
+        <p>Open to backend, architecture, and technical leadership roles.</p>
+      </div>
+      <div class="foot-links">
+        <a class="btn primary" href="mailto:mulhamalnayal@outlook.com">Email me ↗</a>
+        <a class="btn" href="https://github.com/MulhamNayal" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/mulham-alnayal-613306b2/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="fcopy">
+      <span>© 2026 Mulham Alnayal — Kuala Lumpur, Malaysia</span>
+      <span>Built from the schema up.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // reveal on scroll
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // latency bar
+  const lat=document.getElementById('lat');
+  if(lat){const io2=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),250);io2.unobserve(e.target);}})},{threshold:.4});io2.observe(lat);}
+
+  // count-up metrics
+  function countUp(el){
+    const to=+el.dataset.to, suf=el.dataset.suffix||'', dur=1100, t0=performance.now();
+    function tick(t){let p=Math.min((t-t0)/dur,1);p=1-Math.pow(1-p,3);el.textContent=Math.round(to*p)+ (p===1?'':'');if(p<1){requestAnimationFrame(tick);}else{el.innerHTML=to+'<span class="u">'+suf+'</span>';}}
+    if(rm){el.innerHTML=to+'<span class="u">'+suf+'</span>';return;}
+    requestAnimationFrame(tick);
+  }
+  const nums=document.querySelectorAll('.num');
+  const io3=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){countUp(e.target);io3.unobserve(e.target);}})},{threshold:.6});
+  nums.forEach(n=>io3.observe(n));
+
+  // project filter
+  const grid=document.getElementById('grid');
+  const cards=[...grid.querySelectorAll('.card')];
+  const pcount=document.getElementById('pcount');
+  document.querySelectorAll('.filters button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      const f=btn.dataset.f; let shown=0;
+      cards.forEach(c=>{const ok=f==='all'||c.dataset.cat.includes(f);c.classList.toggle('hide',!ok);if(ok)shown++;});
+      pcount.textContent=shown+(f==='all'?' systems shipped':' shown');
+    });
+  });
+
+  // scroll-spy nav
+  const links=[...document.querySelectorAll('.navlinks a')];
+  const secs=links.map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  const spy=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const id='#'+e.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')===id));}})},{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(s=>spy.observe(s));
+</script>
 </body>
-
 </html>
